@@ -27,6 +27,17 @@ function Container() {
         socket.emit("msg", message)
     }
 
+    useEffect(() => {
+        const onBotMessage = (message) => {
+            setMessage(messages => [...messages, { 'user': 'operator', prompt: message }])
+        }
+
+        socket.on('bot message', onBotMessage)
+        return () => {
+            socket.off('bot message', onBotMessage)
+        }
+    }, [])
+
     const send = () => {
         if (inputValue.trim() == "") return;
         setInput("");
@@ -39,7 +50,7 @@ function Container() {
 
             setTimeout(() => {
                 // Time to respond
-                setMessage(messages => [...messages, { 'user': 'operator', prompt: isContextConversions ? conversionPrompt[messages.length].prompt : expensesPrompt[messages.length].prompt }])
+                // setMessage(messages => [...messages, { 'user': 'operator', prompt: isContextConversions ? conversionPrompt[messages.length].prompt : expensesPrompt[messages.length].prompt }])
                 setIsVisualisationOpen(!isVisualisationOpen)
                 setBotTyping(false)
 

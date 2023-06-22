@@ -17,6 +17,7 @@ io.on('connection', (socket) => {
     console.log('a user connected');
     socket.on('msg', (msg) => {
         console.log("received message ", msg)
+        socket.emit('bot message', "Response")
     })
 });
 
