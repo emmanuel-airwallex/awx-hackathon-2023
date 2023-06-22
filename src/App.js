@@ -4,7 +4,6 @@ import { Home } from './Home';
 import { Conversions } from './pages/Conversions';
 import { Expenses } from './pages/Expenses';
 import { BrowserRouter } from 'react-router-dom';
-import Container from './chat/Container'
 
 function App() {
   return (
@@ -16,7 +15,6 @@ function App() {
                 <Route path="expenses" element={<Expenses />} />
             </Routes>
         </BrowserRouter>
-        <Container />
     </div>
     
   );

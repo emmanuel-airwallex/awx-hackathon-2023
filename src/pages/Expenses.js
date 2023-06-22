@@ -1,6 +1,7 @@
 import React from 'react'
 import { MyResponsiveCirclePacking } from '../components/charts/CirclePacking'
 import { expenseData } from '../data/expenseData'
+import Container from '../chat/Container'
 
 export const Expenses = () => {
     return (
@@ -8,6 +9,7 @@ export const Expenses = () => {
             <div style={{height: "800px"}}>
                 <MyResponsiveCirclePacking data={expenseData}/>
             </div>
+            <Container />
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React from "react"
 import { TimeseriesChart } from '../components/charts/TimeseriesChart'
 import tradeData from "../data/tradeData"
+import Container from '../chat/Container'
 
 export const Conversions = () => {
     return (
@@ -8,6 +9,7 @@ export const Conversions = () => {
             <div style={{height: "800px"}}>
                 <TimeseriesChart data={tradeData}/>
             </div>
+            <Container />
         </div>
     )
 }
