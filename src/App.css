@@ -1,3 +1,20 @@
+.background-conversions {
+  background: url("./background-conversions.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100vh;
+  width: 100vw
+}
+
+
+.background-expenses {
+  background: url("./background-expenses.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100vh;
+  width: 100vw;
+}
+
 .App {
   text-align: center;
 }
