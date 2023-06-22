@@ -1,12 +1,18 @@
 import { ResponsiveBar } from '@nivo/bar'
 
 const BarChartBreakdown = ({ data }) => {
+    const colors = [
+        "#775CFF",
+        "#0BEA82",
+        "#FF4F42",
+        "#FF8E3C",
+        "#FFD014"
+    ]
     return (
         <ResponsiveBar
         data={data}
         keys={[
             'Mark',
-            'Jane',
             'Daniel',
             'Michael',
             'Sarah',
@@ -17,41 +23,7 @@ const BarChartBreakdown = ({ data }) => {
         pTransportationding={0.3}
         valueScale={{ type: 'linear' }}
         indexScale={{ type: 'band', round: true }}
-        colors={{ scheme: 'nivo' }}
-        defs={[
-            {
-                id: 'dots',
-                type: 'patternDots',
-                background: 'inherit',
-                color: '#38bcb2',
-                size: 4,
-                pTransportationding: 1,
-                stagger: true
-            },
-            {
-                id: 'lines',
-                type: 'patternLines',
-                background: 'inherit',
-                color: '#eed312',
-                rotation: -45,
-                lineWidth: 6,
-                spacing: 10
-            }
-        ]}
-        fill={[
-            {
-                match: {
-                    id: 'Sarah'
-                },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'Daniel'
-                },
-                id: 'lines'
-            }
-        ]}
+        colors={colors}
         borderColor={{
             from: 'color',
             modifiers: [
