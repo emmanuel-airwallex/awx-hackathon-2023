@@ -1,11 +1,12 @@
 import './App.css';
+import { TimeseriesChart } from './component/TimeseriesChart';
+import data from './data/mockData'
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div style={{ height: 690 }}>
+      <TimeseriesChart data={data}/>
+    </div>
   );
 }
-
 export default App;
