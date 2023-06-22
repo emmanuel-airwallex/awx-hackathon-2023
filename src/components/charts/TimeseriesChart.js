@@ -1,4 +1,36 @@
 import { ResponsiveLine } from '@nivo/line'
+import React from "react";
+
+const Scatter = ({ xScale, yScale }) => {
+    return (
+        <>
+            <circle
+                cx={xScale("6/8/2023")}
+                cy={yScale(0.665)}
+                r={10}
+                fill="black"
+                stroke="black"
+                style={{ pointerEvents: "none" }}
+            />
+            <circle
+                cx={xScale("6/11/2023")}
+                cy={yScale(0.676325)}
+                r={10}
+                fill="black"
+                stroke="black"
+                style={{ pointerEvents: "none" }}
+            />
+            <circle
+                cx={xScale("6/18/2023")}
+                cy={yScale(0.69)}
+                r={10}
+                fill="black"
+                stroke="black"
+                style={{ pointerEvents: "none" }}
+            />
+        </>
+    );
+};
 
 export const TimeseriesChart = ({ data, height }) => {
   return (
@@ -64,6 +96,18 @@ export const TimeseriesChart = ({ data, height }) => {
                     }
                 ]
             }
+        ]}
+
+        layers={[
+            'grid',
+            'markers',
+            'areas',
+            'lines',
+            'slices',
+            'axes',
+            'points',
+            Scatter,
+            'legends'
         ]}
       />
     </div>
