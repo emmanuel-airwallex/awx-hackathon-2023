@@ -6,9 +6,7 @@ import Container from '../chat/Container'
 export const Conversions = () => {
     return (
         <div className='background-conversions'>
-            <div style={{height: "800px"}}>
-                <TimeseriesChart data={tradeData}/>
-            </div>
+            <TimeseriesChart data={tradeData} height={"200px"}/>
             <Container />
         </div>
     )
