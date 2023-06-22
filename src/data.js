@@ -1,4 +1,58 @@
-export const data = {
+export const expenseData = {
+    "name": "Expenses",
+    "color": "hsl(125, 70%, 50%)",
+    "children": [
+      {
+        "name": "Transportation Services",
+        "color": "hsl(327, 70%, 50%)",
+        "children": [
+          {
+            "name": "Bus Lines",
+            "color": "hsl(277, 70%, 50%)",
+            "loc": 126290
+          },
+          {
+            "name": "Airports, Airport Terminals, Flying Fields",
+            "color": "hsl(140, 70%, 50%)",
+            "loc": 115576
+          },
+          {
+            "name": "Bridge and Road Fees, Tolls",
+            "color": "hsl(140, 70%, 50%)",
+            "loc": 183497
+          },
+          {
+            "name": "Taxicabs and Limousines",
+            "color": "hsl(140, 70%, 50%)",
+            "loc": 31228
+          }
+        ]
+      },
+      {
+          "name": "Business Services",
+          "color": "hsl(327, 70%, 50%)",
+          "children": [
+            {
+              "name": "Car Washes",
+              "color": "hsl(277, 70%, 50%)",
+              "loc": 116753
+            },
+            {
+              "name": "Golf Courses, Public",
+              "color": "hsl(140, 70%, 50%)",
+              "loc": 110803
+            },
+            {
+              "name": "Automotive Service Shops",
+              "color": "hsl(140, 70%, 50%)",
+              "loc": 25809
+            }
+          ]
+      }
+    ]
+  }
+
+export const sampleData = {
     "name": "nivo",
     "color": "hsl(327, 70%, 50%)",
     "children": [

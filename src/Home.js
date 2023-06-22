@@ -4,7 +4,9 @@ import React from "react";
 export const Home = () => {
     return (
         <div>
-            Home page
+            <h1>
+                Home page
+            </h1>
         </div>
     )
 }
