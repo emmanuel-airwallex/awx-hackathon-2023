@@ -6,6 +6,9 @@ import { conversionPrompt, expensesPrompt } from "../data/prompts";
 import ChatToggleButton from "./ChatToggleButton";
 import VisualisationPanel from "./VisualisationPanel";
 import WaitingStatus from "./WaitingStatus"
+import io from "socket.io-client"
+
+var socket = io(":3001");
 
 function Container() {
     const location = useLocation();
@@ -20,10 +23,15 @@ function Container() {
     const [messages, setMessage] = useState([location.pathname === "/conversions" ? conversionPrompt[0] : expensesPrompt[0]]);
     const isContextConversions = location.pathname === "/conversions"
 
+    const queryBackend = (message) => {
+        socket.emit("msg", message)
+    }
+
     const send = () => {
         if (inputValue.trim() == "") return;
         setInput("");
         setMessage(messages => [...messages, { 'user': 'user', prompt: inputValue }])
+        queryBackend(inputValue)
 
         setTimeout(() => {
             // Time to start responding
