@@ -1,6 +1,7 @@
 import { ResponsiveCirclePacking } from "@nivo/circle-packing"
 
-export const MyResponsiveCirclePacking = ({ data }) => (
+export const MyResponsiveCirclePacking = ({ data, height }) => (
+    <div style={{height: height}}>
     <ResponsiveCirclePacking
         data={data}
         margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
@@ -59,4 +60,5 @@ export const MyResponsiveCirclePacking = ({ data }) => (
             }
         ]}
     />
+    </div>
 )

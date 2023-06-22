@@ -1,3 +1,8 @@
+import { TimeseriesChart } from '../components/charts/TimeseriesChart'
+import tradeData from "../data/tradeData"
+import BarChartBreakdown from '../components/charts/BarChartBreakdown'
+import expensesBreakdownData from '../data/expensesBreakdownByEmployeeData'
+
 export const conversionPrompt = [
     {
         "user": "operator",
@@ -17,7 +22,7 @@ export const conversionPrompt = [
     },
     {
         "user": "operator",
-        "prompt": "[T+7 rate chart]"
+        "prompt": <TimeseriesChart data={tradeData} height={"200px"}/>
     },
     {
         "user": "client",
@@ -25,11 +30,11 @@ export const conversionPrompt = [
     },
     {
         "user": "operator",
-        "prompt": "[T+30 rate chart]"
+        "prompt": <TimeseriesChart data={tradeData} height={"200px"}/>
     },
     {
         "user": "client",
-        "prompt": "[T+30 rate chart with trades]"
+        "prompt": <TimeseriesChart data={tradeData} height={"200px"}/>
     },
 ]
 
@@ -44,7 +49,7 @@ export const expensesPrompt = [
     },
     {
         "user": "operator",
-        "prompt": "[Volume chart breakdown by MCC]"
+        "prompt": <BarChartBreakdown data={expensesBreakdownData} height={"200px"} />
     },
     {
         "user": "client",
@@ -52,7 +57,7 @@ export const expensesPrompt = [
     },
     {
         "user": "operator",
-        "prompt": "[Volume chart breakdown by MCC by employee]"
+        "prompt": <BarChartBreakdown data={expensesBreakdownData} height={"200px"} />
     },
     {
         "user": "client",

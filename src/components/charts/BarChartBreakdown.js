@@ -1,6 +1,6 @@
 import { ResponsiveBar } from '@nivo/bar'
 
-const BarChartBreakdown = ({ data }) => {
+const BarChartBreakdown = ({ data, height }) => {
     const colors = [
         "#775CFF",
         "#0BEA82",
@@ -9,6 +9,7 @@ const BarChartBreakdown = ({ data }) => {
         "#FFD014"
     ]
     return (
+        <div style={{height: height}}>
         <ResponsiveBar
         data={data}
         keys={[
@@ -90,6 +91,7 @@ const BarChartBreakdown = ({ data }) => {
         ariaLabel="Nivo bar chart demo"
         barAriaLabel={e=>e.id+": "+e.formattedValue+" in expenseCategory: "+e.indexValue}
     />
+    </div>
     )
 }
 
