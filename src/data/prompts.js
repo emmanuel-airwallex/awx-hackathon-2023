@@ -10,11 +10,12 @@ export const conversionPrompt = [
     },
     {
         "user": "client",
-        "prompt": "What is my most commonly traded currency?"
+        "prompt": "What is my most commonly traded currency?" // show me a graph. now fx forecasts. now a useful graph.
     },
     {
         "user": "operator",
-        "prompt": "AUDUSD. The current rate is 0.67… "
+        // "prompt": "AUDUSD. The current rate is 0.67… "
+        "prompt": "Sure. Here's a graph showing absolutely nonsense data!"
     },
     {
         "user": "client",
@@ -22,7 +23,8 @@ export const conversionPrompt = [
     },
     {
         "user": "operator",
-        "prompt": <TimeseriesChart data={tradeData} height={"200px"}/>
+        "prompt": "Hmm, no, I don't think I will tell you that."
+        // "prompt": <TimeseriesChart data={tradeData} height={"200px"}/>
     },
     {
         "user": "client",
@@ -30,7 +32,8 @@ export const conversionPrompt = [
     },
     {
         "user": "operator",
-        "prompt": <TimeseriesChart data={tradeData} height={"200px"}/>
+        "prompt": "Here's the same graph I gave you last time, lol."
+        // "prompt": <TimeseriesChart data={tradeData} height={"200px"}/>
     },
     {
         "user": "client",
