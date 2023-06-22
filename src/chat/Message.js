@@ -1,10 +1,10 @@
 function Message(params) {
     return params.fromBot ? 
-        <div className="relative p-4 ml-4 mb-4 bg-gray-300 rounded self-start w-64">
+        <div className="relative p-4 ml-4 mb-4 bg-gray-300 rounded self-start w-64 text-lg">
             {params.message}
             <img className="absolute -bottom-8 -left-8 ring-gray-50 ring-4 rounded-full w-12 h-12 bg-gray-200" src="https://ascentialcdn.filespin.io/api/v1/conversion/54afd8f75f794afd9e21b3e965424a2b?quality=75&crop=350,350,face" />
         </div> :
-        <div className="relative p-4 mr-4 mb-4 bg-gray-200 rounded self-end w-64">
+        <div className="relative p-4 mr-4 mb-4 bg-gray-200 rounded self-end w-64 text-lg">
             {params.message}
             <div className="absolute -bottom-8 -right-8 ring-gray-50 ring-4  rounded-full w-12 h-12 bg-gray-200">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
