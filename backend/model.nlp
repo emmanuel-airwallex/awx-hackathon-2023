@@ -1,0 +1,418 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "forceNER": true,
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "data,me,seri,show,time": {
+            "intent": "visualisation.currency",
+            "domain": "default"
+          },
+          "compar,currenc": {
+            "intent": "visualisation.currency",
+            "domain": "default"
+          },
+          "currenc,over,show,time": {
+            "intent": "visualisation.currency",
+            "domain": "default"
+          },
+          "compar,fx,rate": {
+            "intent": "visualisation.currency",
+            "domain": "default"
+          },
+          "exchang,foreign,graph,show": {
+            "intent": "visualisation.currency",
+            "domain": "default"
+          },
+          "categori,code,merchant,show": {
+            "intent": "visualisation.expense",
+            "domain": "default"
+          },
+          "card,on,show,spend": {
+            "intent": "visualisation.expense",
+            "domain": "default"
+          },
+          "distribut,is,mcc,of,show": {
+            "intent": "visualisation.expense",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "visualisation.currency": "default",
+          "visualisation.expense": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "show me time series data",
+            "intent": "visualisation.currency"
+          },
+          {
+            "domain": "default",
+            "utterance": "compare currencies",
+            "intent": "visualisation.currency"
+          },
+          {
+            "domain": "default",
+            "utterance": "show currency over time",
+            "intent": "visualisation.currency"
+          },
+          {
+            "domain": "default",
+            "utterance": "compare fx rates",
+            "intent": "visualisation.currency"
+          },
+          {
+            "domain": "default",
+            "utterance": "show foreign exchange graph",
+            "intent": "visualisation.currency"
+          },
+          {
+            "domain": "default",
+            "utterance": "show merchant category code",
+            "intent": "visualisation.expense"
+          },
+          {
+            "domain": "default",
+            "utterance": "show spending on cards",
+            "intent": "visualisation.expense"
+          },
+          {
+            "domain": "default",
+            "utterance": "show distribution of MCC's",
+            "intent": "visualisation.expense"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "show": 1,
+              "me": 1,
+              "time": 1,
+              "seri": 1,
+              "data": 1,
+              "compar": 1,
+              "currenc": 1,
+              "over": 1,
+              "fx": 1,
+              "rate": 1,
+              "foreign": 1,
+              "exchang": 1,
+              "graph": 1,
+              "merchant": 1,
+              "categori": 1,
+              "code": 1,
+              "spend": 1,
+              "on": 1,
+              "card": 1,
+              "distribut": 1,
+              "of": 1,
+              "mcc": 1,
+              "is": 1
+            },
+            "intents": {
+              "visualisation.currency": 1,
+              "visualisation.expense": 1
+            },
+            "intentFeatures": {
+              "visualisation.currency": {
+                "show": 1,
+                "me": 1,
+                "time": 1,
+                "seri": 1,
+                "data": 1,
+                "compar": 1,
+                "currenc": 1,
+                "over": 1,
+                "fx": 1,
+                "rate": 1,
+                "foreign": 1,
+                "exchang": 1,
+                "graph": 1
+              },
+              "visualisation.expense": {
+                "show": 1,
+                "merchant": 1,
+                "categori": 1,
+                "code": 1,
+                "spend": 1,
+                "on": 1,
+                "card": 1,
+                "distribut": 1,
+                "of": 1,
+                "mcc": 1,
+                "is": 1
+              }
+            },
+            "featuresToIntent": {
+              "show": [
+                "visualisation.currency",
+                "visualisation.expense"
+              ],
+              "me": [
+                "visualisation.currency"
+              ],
+              "time": [
+                "visualisation.currency"
+              ],
+              "seri": [
+                "visualisation.currency"
+              ],
+              "data": [
+                "visualisation.currency"
+              ],
+              "compar": [
+                "visualisation.currency"
+              ],
+              "currenc": [
+                "visualisation.currency"
+              ],
+              "over": [
+                "visualisation.currency"
+              ],
+              "fx": [
+                "visualisation.currency"
+              ],
+              "rate": [
+                "visualisation.currency"
+              ],
+              "foreign": [
+                "visualisation.currency"
+              ],
+              "exchang": [
+                "visualisation.currency"
+              ],
+              "graph": [
+                "visualisation.currency"
+              ],
+              "merchant": [
+                "visualisation.expense"
+              ],
+              "categori": [
+                "visualisation.expense"
+              ],
+              "code": [
+                "visualisation.expense"
+              ],
+              "spend": [
+                "visualisation.expense"
+              ],
+              "on": [
+                "visualisation.expense"
+              ],
+              "card": [
+                "visualisation.expense"
+              ],
+              "distribut": [
+                "visualisation.expense"
+              ],
+              "of": [
+                "visualisation.expense"
+              ],
+              "mcc": [
+                "visualisation.expense"
+              ],
+              "is": [
+                "visualisation.expense"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "show",
+                "me",
+                "time",
+                "seri",
+                "data",
+                "compar",
+                "currenc",
+                "over",
+                "fx",
+                "rate",
+                "foreign",
+                "exchang",
+                "graph",
+                "merchant",
+                "categori",
+                "code",
+                "spend",
+                "on",
+                "card",
+                "distribut",
+                "of",
+                "mcc",
+                "is"
+              ],
+              "intents": [
+                "visualisation.currency",
+                "visualisation.expense"
+              ],
+              "perceptrons": [
+                [
+                  1.4310808181762695,
+                  1.953825831413269,
+                  3.3260157108306885,
+                  1.953825831413269,
+                  1.953825831413269,
+                  5.777293682098389,
+                  4.636698246002197,
+                  1.3734309673309326,
+                  2.5148138999938965,
+                  2.5148138999938965,
+                  3.091038942337036,
+                  3.091038942337036,
+                  3.091038942337036,
+                  -1.7478572130203247,
+                  -1.7478572130203247,
+                  -1.7478572130203247,
+                  -1.7172627449035645,
+                  -1.7172627449035645,
+                  -1.7172627449035645,
+                  -1.2911267280578613,
+                  -1.2911267280578613,
+                  -1.2911267280578613,
+                  -1.2911267280578613,
+                  3.6019797012752153
+                ],
+                [
+                  3.787825584411621,
+                  -1.1821361780166626,
+                  -2.5691893100738525,
+                  -1.1821361780166626,
+                  -1.1821361780166626,
+                  -0.7349915504455566,
+                  -1.615804672241211,
+                  -1.2850993871688843,
+                  -0.4079435467720032,
+                  -0.4079435467720032,
+                  -1.8110979795455933,
+                  -1.8110979795455933,
+                  -1.8110979795455933,
+                  3.00209641456604,
+                  3.00209641456604,
+                  3.00209641456604,
+                  2.9940810203552246,
+                  2.9940810203552246,
+                  2.9940810203552246,
+                  2.2396228313446045,
+                  2.2396228313446045,
+                  2.2396228313446045,
+                  2.2396228313446045,
+                  1.5181697172729278
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "show me time series data"
+      ],
+      [
+        "en",
+        "compare currencies"
+      ],
+      [
+        "en",
+        "show currency over time"
+      ],
+      [
+        "en",
+        "compare fx rates"
+      ],
+      [
+        "en",
+        "show foreign exchange graph"
+      ],
+      [
+        "en",
+        "show merchant category code"
+      ],
+      [
+        "en",
+        "show spending on cards"
+      ],
+      [
+        "en",
+        "show distribution of MCC's"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {}
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

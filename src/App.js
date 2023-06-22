@@ -4,10 +4,15 @@ import { Home } from './Home';
 import { Conversions } from './pages/Conversions';
 import { Expenses } from './pages/Expenses';
 import { BrowserRouter } from 'react-router-dom';
+import { useEffect } from 'react'
 
 function App() {
+  useEffect(() => {
+    document.title = 'Airwallex';
+  }, []);
+
   return (
-    <div>
+    <div className="h-screen">
         <BrowserRouter>
             <Routes>
                 <Route index element={<Home />} /> 
