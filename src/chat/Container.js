@@ -29,7 +29,8 @@ function Container() {
 
     useEffect(() => {
         const onBotMessage = (message) => {
-            setMessage(messages => [...messages, { 'user': 'operator', prompt: message }])
+            console.log(message)
+            setMessage(messages => [...messages, { 'user': 'operator', prompt: message.intent }])
         }
 
         socket.on('bot message', onBotMessage)
@@ -42,7 +43,6 @@ function Container() {
         if (inputValue.trim() == "") return;
         setInput("");
         setMessage(messages => [...messages, { 'user': 'user', prompt: inputValue }])
-        queryBackend(inputValue)
 
         setTimeout(() => {
             // Time to start responding
@@ -52,6 +52,7 @@ function Container() {
                 // Time to respond
                 // setMessage(messages => [...messages, { 'user': 'operator', prompt: isContextConversions ? conversionPrompt[messages.length].prompt : expensesPrompt[messages.length].prompt }])
                 setIsVisualisationOpen(!isVisualisationOpen)
+                queryBackend(inputValue)
                 setBotTyping(false)
 
             }, 2000 + 2*Math.random())
