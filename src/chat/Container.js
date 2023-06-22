@@ -4,16 +4,22 @@ import { useLocation } from 'react-router-dom';
 import Message from "./Message"
 import { conversionPrompt, expensesPrompt } from "../data/prompts";
 import ChatToggleButton from "./ChatToggleButton";
+import VisualisationPanel from "./VisualisationPanel";
 
 function Container() {
     const location = useLocation();
     const [inputValue, setInput] = useState("")
-    const [isOpen, setIsOpen] = useState(false)
+    const [isChatOpen, setIsChatOpen] = useState(false)
+    const [isVisualisationOpen, setIsVisualisationOpen] = useState(false)
+    const [visualisation, setVisualisation] = useState({
+        title: "Visualisation of rates"
+    })
     const [messages, setMessage] = useState([location.pathname === "/conversions" ? conversionPrompt[0] : expensesPrompt[0]]);
     const isContextConversions = location.pathname === "/conversions"
 
     const send = () => {
         if (inputValue.trim() == "") return;
+        setIsVisualisationOpen(!isVisualisationOpen)
         setInput("");
         setMessage(messages => [...messages, { 'user': 'user', prompt: inputValue }, { 'user': 'operator', prompt: isContextConversions ? conversionPrompt[messages.length + 1].prompt : expensesPrompt[messages.length + 1].prompt }])
     }
@@ -39,9 +45,10 @@ function Container() {
 
     return (
         <>
-            <ChatToggleButton onClick={() => setIsOpen(!isOpen)} isOpen={isOpen} />
+            <ChatToggleButton onClick={() => setIsChatOpen(!isChatOpen)} isOpen={isChatOpen} />
+            <VisualisationPanel isOpen={isVisualisationOpen && isChatOpen} visualisation={visualisation} />
             {
-                <div className={"fixed bottom-24 right-0 m-4 p-8 h-3/4 max-w-lg w-full m-8 transition-all " + (isOpen ? "-translate-x-3 opacity-100" : "opacity-0")} >
+                <div className={"fixed bottom-24 right-0 m-4 p-8 h-3/4 max-w-lg w-full m-8 transition-all " + (isChatOpen ? "-translate-x-3 opacity-100" : "opacity-0")} >
                     <div className="bg-gray-50 m-4 p-8 ring-2 rounded ring-gray-100 w-full h-full min-h-full flex flex-col shadow-lg">
                         <h1 className="font-bold text-gray-700 mb-4">Airpilot</h1>
                         <hr className="mb-4" />
