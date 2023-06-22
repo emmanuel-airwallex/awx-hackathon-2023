@@ -1,8 +1,8 @@
 import { ResponsiveLine } from '@nivo/line'
 
-export const TimeseriesChart = ({ data }) => {
+export const TimeseriesChart = ({ data, height }) => {
   return (
-    <div style={{ height: 600 }}>
+    <div style={{ height: height }}>
       <ResponsiveLine
         data={data}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
