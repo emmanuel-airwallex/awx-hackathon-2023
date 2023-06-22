@@ -1,6 +1,6 @@
 const expensesBreakdownData = [
     {
-      "Expense Category": "Transportation",
+      "expenseCategory": "Transportation",
       "Mark": 121,
       "MarkColor": "hsl(303, 70%, 50%)",
       "Jane": 46,
@@ -15,7 +15,7 @@ const expensesBreakdownData = [
       "JimmyColor": "hsl(52, 70%, 50%)"
     },
     {
-      "Expense Category": "Retail Outlet Services",
+      "expenseCategory": "Retail Outlet Services",
       "Mark": 64,
       "MarkColor": "hsl(316, 70%, 50%)",
       "Jane": 168,
@@ -30,7 +30,7 @@ const expensesBreakdownData = [
       "JimmyColor": "hsl(158, 70%, 50%)"
     },
     {
-      "Expense Category": "Miscellaneous Stores",
+      "expenseCategory": "Health Services",
       "Mark": 155,
       "MarkColor": "hsl(257, 70%, 50%)",
       "Jane": 151,
@@ -45,7 +45,7 @@ const expensesBreakdownData = [
       "JimmyColor": "hsl(193, 70%, 50%)"
     },
     {
-      "Expense Category": "Health Services",
+      "expenseCategory": "Eating Out",
       "Mark": 165,
       "MarkColor": "hsl(122, 70%, 50%)",
       "Jane": 63,
@@ -60,7 +60,7 @@ const expensesBreakdownData = [
       "JimmyColor": "hsl(158, 70%, 50%)"
     },
     {
-      "Expense Category": "AI",
+      "expenseCategory": "Utilities",
       "Mark": 98,
       "MarkColor": "hsl(337, 70%, 50%)",
       "Jane": 147,
@@ -73,35 +73,7 @@ const expensesBreakdownData = [
       "SarahColor": "hsl(103, 70%, 50%)",
       "Jimmy": 69,
       "JimmyColor": "hsl(107, 70%, 50%)"
-    },
-    {
-      "Expense Category": "AL",
-      "Mark": 77,
-      "MarkColor": "hsl(159, 70%, 50%)",
-      "Jane": 48,
-      "JaneColor": "hsl(353, 70%, 50%)",
-      "Daniel": 82,
-      "DanielColor": "hsl(269, 70%, 50%)",
-      "Michael": 51,
-      "MichaelColor": "hsl(211, 70%, 50%)",
-      "Sarah": 199,
-      "SarahColor": "hsl(327, 70%, 50%)",
-      "Jimmy": 174,
-      "JimmyColor": "hsl(142, 70%, 50%)"
-    },
-    {
-      "Expense Category": "AM",
-      "Mark": 30,
-      "MarkColor": "hsl(83, 70%, 50%)",
-      "Jane": 8,
-      "JaneColor": "hsl(359, 70%, 50%)",
-      "Daniel": 193,
-      "DanielColor": "hsl(131, 70%, 50%)",
-      "Michael": 161,
-      "MichaelColor": "hsl(227, 70%, 50%)",
-      "Sarah": 189,
-      "SarahColor": "hsl(0, 70%, 50%)",
-      "Jimmy": 58,
-      "JimmyColor": "hsl(338, 70%, 50%)"
     }
   ]
+
+  export default expensesBreakdownData;

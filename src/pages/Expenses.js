@@ -5,6 +5,14 @@ import { expenseData } from '../data/expenseData'
 import expensesBreakdownData from '../data/expensesBreakdownByEmployeeData'
 
 export const Expenses = () => {
+    const keys = [
+        'Mark',
+        'Jane',
+        'Daniel',
+        'Michael',
+        'Sarah',
+        'Jimmy'
+    ]
     return (
         <div>
             <h1>
@@ -14,7 +22,7 @@ export const Expenses = () => {
                 <MyResponsiveCirclePacking data={expenseData}/>
             </div>
             <div style={{height: "800px"}}>
-                <BarChartBreakdown />
+                <BarChartBreakdown data={expensesBreakdownData} />
             </div>
         </div>
     )
