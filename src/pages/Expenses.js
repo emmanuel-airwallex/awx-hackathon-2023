@@ -1,6 +1,6 @@
 import React from 'react'
-import { MyResponsiveCirclePacking } from './CirclePacking'
-import { expenseData } from './data'
+import { MyResponsiveCirclePacking } from '../components/charts/CirclePacking'
+import { expenseData } from '../data/expenseData'
 
 export const Expenses = () => {
     return (

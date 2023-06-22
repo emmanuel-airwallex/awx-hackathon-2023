@@ -1,8 +1,8 @@
 import './App.css';
 import { Routes, Route } from 'react-router'
 import { Home } from './Home';
-import { Conversions } from './Conversions';
-import { Expenses } from './Expenses';
+import { Conversions } from './pages/Conversions';
+import { Expenses } from './pages/Expenses';
 import { BrowserRouter } from 'react-router-dom';
 
 function App() {
