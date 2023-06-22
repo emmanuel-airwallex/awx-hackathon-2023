@@ -60,6 +60,6 @@ export const expensesPrompt = [
     },
     {
         "user": "operator",
-        "prompt": "ased on your transaction history, you spend 55% more on travel than a comparable eCommerce business of a similar size. We recommend you take a look at this blog article for more information."
+        "prompt": "Based on your transaction history, you spend 55% more on travel than a comparable eCommerce business of a similar size. We recommend you take a look at this blog article for more information."
     },
 ]
