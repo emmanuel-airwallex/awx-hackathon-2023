@@ -16,6 +16,27 @@ export const Conversions = () => {
 
     console.log(tradeData);
 
+    const testData = [
+        {
+            "id": "AUDUSD",
+            "color": "hsl(144, 70%, 50%)",
+            "data": [
+                {
+                    "x": "6/7/2023",
+                    "y": 0.66318
+                },
+                {
+                    "x": "6/8/2023",
+                    "y": 0.66318
+                },
+                {
+                    "x": "6/9/2023",
+                    "y": 0.656272
+                }
+            ]
+        }
+    ]
+
     return (
         <div>
             <h1>
