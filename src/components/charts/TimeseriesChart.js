@@ -12,6 +12,16 @@ const Scatter = ({ xScale, yScale }) => {
                 stroke="black"
                 style={{ pointerEvents: "none" }}
             />
+            <rect
+                x={xScale("6/4")}
+                y={yScale(0.678)}
+                width={113}
+                height={30}
+                fill="white"
+                stroke="black"
+                style={{ pointerEvents: "none" }}
+            />
+            <text x={xScale("6/4")} y={yScale(0.676)} font-family="Verdana" font-size="15" fill="black">Sell $150 USD</text>
             <circle
                 cx={xScale("6/11")}
                 cy={yScale(0.676325)}
@@ -20,14 +30,34 @@ const Scatter = ({ xScale, yScale }) => {
                 stroke="black"
                 style={{ pointerEvents: "none" }}
             />
+            <rect
+                x={xScale("6/8")}
+                y={yScale(0.66)}
+                width={113}
+                height={30}
+                fill="white"
+                stroke="black"
+                style={{ pointerEvents: "none" }}
+            />
+            <text x={xScale("6/8")} y={yScale(0.658)} font-family="Verdana" font-size="15" fill="black">Buy $170 AUD</text>
             <circle
-                cx={xScale("6/18")}
-                cy={yScale(0.69)}
+                cx={xScale("6/15")}
+                cy={yScale(0.68)}
                 r={10}
                 fill="black"
                 stroke="black"
                 style={{ pointerEvents: "none" }}
             />
+            <rect
+                x={xScale("6/16")}
+                y={yScale(0.678)}
+                width={115}
+                height={30}
+                fill="white"
+                stroke="black"
+                style={{ pointerEvents: "none" }}
+            />
+            <text x={xScale("6/16")} y={yScale(0.676)} font-family="Verdana" font-size="15" fill="black">Buy $200 AUD</text>
         </>
     );
 };
@@ -47,6 +77,7 @@ export const TimeseriesChart = ({ data, height }) => {
             reverse: false
         }}
         yFormat=" >-.2f"
+        animate={true}
         axisTop={null}
         axisRight={null}
         axisBottom={{
