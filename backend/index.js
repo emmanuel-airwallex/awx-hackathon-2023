@@ -28,6 +28,7 @@ manager.addDocument('en', 'show when I traded in the past', 'visualisation.curre
 manager.addDocument('en', 'show merchant category code', 'visualisation.expense');
 manager.addDocument('en', 'show spending on cards', 'visualisation.expense');
 manager.addDocument('en', 'show distribution of MCC\'s', 'visualisation.expense');
+manager.addDocument('en', 'how can I reduce my expenses', 'expense.blog');
 
 manager.addDocument('en', 'break down spending by employee', 'visualisation.expense.breakdown');
 manager.addDocument('en', 'break down each category', 'visualisation.expense.breakdown');

@@ -55,6 +55,14 @@
             "intent": "visualisation.currency",
             "domain": "default"
           },
+          "convers,histor,includ": {
+            "intent": "visualisation.currency.conversions",
+            "domain": "default"
+          },
+          "i,in,past,show,the,trade,when": {
+            "intent": "visualisation.currency.conversions",
+            "domain": "default"
+          },
           "categori,code,merchant,show": {
             "intent": "visualisation.expense",
             "domain": "default"
@@ -66,11 +74,30 @@
           "distribut,is,mcc,of,show": {
             "intent": "visualisation.expense",
             "domain": "default"
+          },
+          "can,expens,how,i,my,reduc": {
+            "intent": "expense.blog",
+            "domain": "default"
+          },
+          "break,by,down,employe,spend": {
+            "intent": "visualisation.expense.breakdown",
+            "domain": "default"
+          },
+          "break,categori,down,each": {
+            "intent": "visualisation.expense.breakdown",
+            "domain": "default"
+          },
+          "categori,each,expand,type": {
+            "intent": "visualisation.expense.breakdown",
+            "domain": "default"
           }
         },
         "intentDict": {
           "visualisation.currency": "default",
-          "visualisation.expense": "default"
+          "visualisation.currency.conversions": "default",
+          "visualisation.expense": "default",
+          "expense.blog": "default",
+          "visualisation.expense.breakdown": "default"
         },
         "sentences": [
           {
@@ -100,6 +127,16 @@
           },
           {
             "domain": "default",
+            "utterance": "include historic conversions",
+            "intent": "visualisation.currency.conversions"
+          },
+          {
+            "domain": "default",
+            "utterance": "show when I traded in the past",
+            "intent": "visualisation.currency.conversions"
+          },
+          {
+            "domain": "default",
             "utterance": "show merchant category code",
             "intent": "visualisation.expense"
           },
@@ -112,6 +149,26 @@
             "domain": "default",
             "utterance": "show distribution of MCC's",
             "intent": "visualisation.expense"
+          },
+          {
+            "domain": "default",
+            "utterance": "how can I reduce my expenses",
+            "intent": "expense.blog"
+          },
+          {
+            "domain": "default",
+            "utterance": "break down spending by employee",
+            "intent": "visualisation.expense.breakdown"
+          },
+          {
+            "domain": "default",
+            "utterance": "break down each category",
+            "intent": "visualisation.expense.breakdown"
+          },
+          {
+            "domain": "default",
+            "utterance": "expand each category type",
+            "intent": "visualisation.expense.breakdown"
           }
         ],
         "domains": {
@@ -141,6 +198,15 @@
               "foreign": 1,
               "exchang": 1,
               "graph": 1,
+              "includ": 1,
+              "histor": 1,
+              "convers": 1,
+              "when": 1,
+              "i": 1,
+              "trade": 1,
+              "in": 1,
+              "the": 1,
+              "past": 1,
               "merchant": 1,
               "categori": 1,
               "code": 1,
@@ -150,11 +216,26 @@
               "distribut": 1,
               "of": 1,
               "mcc": 1,
-              "is": 1
+              "is": 1,
+              "how": 1,
+              "can": 1,
+              "reduc": 1,
+              "my": 1,
+              "expens": 1,
+              "break": 1,
+              "down": 1,
+              "by": 1,
+              "employe": 1,
+              "each": 1,
+              "expand": 1,
+              "type": 1
             },
             "intents": {
               "visualisation.currency": 1,
-              "visualisation.expense": 1
+              "visualisation.currency.conversions": 1,
+              "visualisation.expense": 1,
+              "expense.blog": 1,
+              "visualisation.expense.breakdown": 1
             },
             "intentFeatures": {
               "visualisation.currency": {
@@ -172,6 +253,18 @@
                 "exchang": 1,
                 "graph": 1
               },
+              "visualisation.currency.conversions": {
+                "includ": 1,
+                "histor": 1,
+                "convers": 1,
+                "show": 1,
+                "when": 1,
+                "i": 1,
+                "trade": 1,
+                "in": 1,
+                "the": 1,
+                "past": 1
+              },
               "visualisation.expense": {
                 "show": 1,
                 "merchant": 1,
@@ -184,11 +277,31 @@
                 "of": 1,
                 "mcc": 1,
                 "is": 1
+              },
+              "expense.blog": {
+                "how": 1,
+                "can": 1,
+                "i": 1,
+                "reduc": 1,
+                "my": 1,
+                "expens": 1
+              },
+              "visualisation.expense.breakdown": {
+                "break": 1,
+                "down": 1,
+                "spend": 1,
+                "by": 1,
+                "employe": 1,
+                "each": 1,
+                "categori": 1,
+                "expand": 1,
+                "type": 1
               }
             },
             "featuresToIntent": {
               "show": [
                 "visualisation.currency",
+                "visualisation.currency.conversions",
                 "visualisation.expense"
               ],
               "me": [
@@ -227,17 +340,47 @@
               "graph": [
                 "visualisation.currency"
               ],
+              "includ": [
+                "visualisation.currency.conversions"
+              ],
+              "histor": [
+                "visualisation.currency.conversions"
+              ],
+              "convers": [
+                "visualisation.currency.conversions"
+              ],
+              "when": [
+                "visualisation.currency.conversions"
+              ],
+              "i": [
+                "visualisation.currency.conversions",
+                "expense.blog"
+              ],
+              "trade": [
+                "visualisation.currency.conversions"
+              ],
+              "in": [
+                "visualisation.currency.conversions"
+              ],
+              "the": [
+                "visualisation.currency.conversions"
+              ],
+              "past": [
+                "visualisation.currency.conversions"
+              ],
               "merchant": [
                 "visualisation.expense"
               ],
               "categori": [
-                "visualisation.expense"
+                "visualisation.expense",
+                "visualisation.expense.breakdown"
               ],
               "code": [
                 "visualisation.expense"
               ],
               "spend": [
-                "visualisation.expense"
+                "visualisation.expense",
+                "visualisation.expense.breakdown"
               ],
               "on": [
                 "visualisation.expense"
@@ -256,6 +399,42 @@
               ],
               "is": [
                 "visualisation.expense"
+              ],
+              "how": [
+                "expense.blog"
+              ],
+              "can": [
+                "expense.blog"
+              ],
+              "reduc": [
+                "expense.blog"
+              ],
+              "my": [
+                "expense.blog"
+              ],
+              "expens": [
+                "expense.blog"
+              ],
+              "break": [
+                "visualisation.expense.breakdown"
+              ],
+              "down": [
+                "visualisation.expense.breakdown"
+              ],
+              "by": [
+                "visualisation.expense.breakdown"
+              ],
+              "employe": [
+                "visualisation.expense.breakdown"
+              ],
+              "each": [
+                "visualisation.expense.breakdown"
+              ],
+              "expand": [
+                "visualisation.expense.breakdown"
+              ],
+              "type": [
+                "visualisation.expense.breakdown"
               ]
             },
             "neuralNetwork": {
@@ -284,6 +463,15 @@
                 "foreign",
                 "exchang",
                 "graph",
+                "includ",
+                "histor",
+                "convers",
+                "when",
+                "i",
+                "trade",
+                "in",
+                "the",
+                "past",
                 "merchant",
                 "categori",
                 "code",
@@ -293,64 +481,262 @@
                 "distribut",
                 "of",
                 "mcc",
-                "is"
+                "is",
+                "how",
+                "can",
+                "reduc",
+                "my",
+                "expens",
+                "break",
+                "down",
+                "by",
+                "employe",
+                "each",
+                "expand",
+                "type"
               ],
               "intents": [
                 "visualisation.currency",
-                "visualisation.expense"
+                "visualisation.currency.conversions",
+                "visualisation.expense",
+                "expense.blog",
+                "visualisation.expense.breakdown"
               ],
               "perceptrons": [
                 [
-                  1.4310808181762695,
-                  1.953825831413269,
-                  3.3260157108306885,
-                  1.953825831413269,
-                  1.953825831413269,
-                  5.777293682098389,
-                  4.636698246002197,
-                  1.3734309673309326,
-                  2.5148138999938965,
-                  2.5148138999938965,
-                  3.091038942337036,
-                  3.091038942337036,
-                  3.091038942337036,
-                  -1.7478572130203247,
-                  -1.7478572130203247,
-                  -1.7478572130203247,
-                  -1.7172627449035645,
-                  -1.7172627449035645,
-                  -1.7172627449035645,
-                  -1.2911267280578613,
-                  -1.2911267280578613,
-                  -1.2911267280578613,
-                  -1.2911267280578613,
-                  3.6019797012752153
+                  1.6431783437728882,
+                  2.0567049980163574,
+                  3.5253217220306396,
+                  2.0567049980163574,
+                  2.0567049980163574,
+                  6.160806655883789,
+                  4.9062933921813965,
+                  1.4738733768463135,
+                  2.726205587387085,
+                  2.726205587387085,
+                  3.275538444519043,
+                  3.275538444519043,
+                  3.275538444519043,
+                  -0.9609339237213135,
+                  -0.9609339237213135,
+                  -0.9609339237213135,
+                  -0.8275935649871826,
+                  -1.3134700059890747,
+                  -0.8275935649871826,
+                  -0.8275935649871826,
+                  -0.8275935649871826,
+                  -0.8275935649871826,
+                  -1.3930217027664185,
+                  -1.8978893756866455,
+                  -1.3930217027664185,
+                  -1.7404465675354004,
+                  -1.45491623878479,
+                  -1.45491623878479,
+                  -1.1983917951583862,
+                  -1.1983917951583862,
+                  -1.1983917951583862,
+                  -1.1983917951583862,
+                  -0.32792985439300537,
+                  -0.32792985439300537,
+                  -0.32792985439300537,
+                  -0.32792985439300537,
+                  -0.32792985439300537,
+                  -0.4534914195537567,
+                  -0.4534914195537567,
+                  -0.24340325593948364,
+                  -0.24340325593948364,
+                  -0.4654117822647095,
+                  -0.2652767300605774,
+                  -0.2652767300605774,
+                  2.8539967113907565
                 ],
                 [
-                  3.787825584411621,
-                  -1.1821361780166626,
-                  -2.5691893100738525,
-                  -1.1821361780166626,
-                  -1.1821361780166626,
-                  -0.7349915504455566,
-                  -1.615804672241211,
-                  -1.2850993871688843,
-                  -0.4079435467720032,
-                  -0.4079435467720032,
-                  -1.8110979795455933,
-                  -1.8110979795455933,
-                  -1.8110979795455933,
-                  3.00209641456604,
-                  3.00209641456604,
-                  3.00209641456604,
-                  2.9940810203552246,
-                  2.9940810203552246,
-                  2.9940810203552246,
-                  2.2396228313446045,
-                  2.2396228313446045,
-                  2.2396228313446045,
-                  2.2396228313446045,
-                  1.5181697172729278
+                  -0.11195361614227295,
+                  -0.30459800362586975,
+                  -0.6012893319129944,
+                  -0.30459800362586975,
+                  -0.30459800362586975,
+                  -0.6487509608268738,
+                  -0.6071273684501648,
+                  -0.2555014193058014,
+                  -0.3167695105075836,
+                  -0.3167695105075836,
+                  -0.41516250371932983,
+                  -0.41516250371932983,
+                  -0.41516250371932983,
+                  4.387106418609619,
+                  4.387106418609619,
+                  4.387106418609619,
+                  2.2961478233337402,
+                  1.6047776937484741,
+                  2.2961478233337402,
+                  2.2961478233337402,
+                  2.2961478233337402,
+                  2.2961478233337402,
+                  -0.4064389169216156,
+                  -0.7085561752319336,
+                  -0.4064389169216156,
+                  -0.6036381721496582,
+                  -0.42285510897636414,
+                  -0.42285510897636414,
+                  -0.3876909613609314,
+                  -0.3876909613609314,
+                  -0.3876909613609314,
+                  -0.3876909613609314,
+                  -0.6209604740142822,
+                  -0.6209604740142822,
+                  -0.6209604740142822,
+                  -0.6209604740142822,
+                  -0.6209604740142822,
+                  -0.21707110106945038,
+                  -0.21707110106945038,
+                  -0.12920664250850677,
+                  -0.12920664250850677,
+                  -0.2513750493526459,
+                  -0.16458889842033386,
+                  -0.16458889842033386,
+                  1.2719450139711688
+                ],
+                [
+                  4.251395225524902,
+                  -1.0347204208374023,
+                  -2.345452070236206,
+                  -1.0347204208374023,
+                  -1.0347204208374023,
+                  -0.39640840888023376,
+                  -1.4168273210525513,
+                  -1.2238258123397827,
+                  -0.20426099002361298,
+                  -0.20426099002361298,
+                  -1.6671160459518433,
+                  -1.6671160459518433,
+                  -1.6671160459518433,
+                  -0.24186594784259796,
+                  -0.24186594784259796,
+                  -0.24186594784259796,
+                  -0.8105383515357971,
+                  -1.0523051023483276,
+                  -0.8105383515357971,
+                  -0.8105383515357971,
+                  -0.8105383515357971,
+                  -0.8105383515357971,
+                  3.4997057914733887,
+                  2.2884862422943115,
+                  3.4997057914733887,
+                  2.6503851413726807,
+                  3.3445496559143066,
+                  3.3445496559143066,
+                  2.3273794651031494,
+                  2.3273794651031494,
+                  2.3273794651031494,
+                  2.3273794651031494,
+                  -0.18266840279102325,
+                  -0.18266840279102325,
+                  -0.18266840279102325,
+                  -0.18266840279102325,
+                  -0.18266840279102325,
+                  -1.0203372240066528,
+                  -1.0203372240066528,
+                  -0.6813921332359314,
+                  -0.6813921332359314,
+                  -1.2195160388946533,
+                  -0.8901647925376892,
+                  -0.8901647925376892,
+                  0.7163028131111557
+                ],
+                [
+                  -0.6836862564086914,
+                  -0.06444994360208511,
+                  -0.12105125933885574,
+                  -0.06444994360208511,
+                  -0.06444994360208511,
+                  -0.3111124038696289,
+                  -0.21636682748794556,
+                  -0.037227991968393326,
+                  -0.12988516688346863,
+                  -0.12988516688346863,
+                  -0.055612534284591675,
+                  -0.055612534284591675,
+                  -0.055612534284591675,
+                  -0.16870003938674927,
+                  -0.16870003938674927,
+                  -0.16870003938674927,
+                  -0.4053281545639038,
+                  1.9019075632095337,
+                  -0.4053281545639038,
+                  -0.4053281545639038,
+                  -0.4053281545639038,
+                  -0.4053281545639038,
+                  -0.012006989680230618,
+                  -0.2131347507238388,
+                  -0.012006989680230618,
+                  -0.12763547897338867,
+                  -0.012452853843569756,
+                  -0.012452853843569756,
+                  -0.01794051192700863,
+                  -0.01794051192700863,
+                  -0.01794051192700863,
+                  -0.01794051192700863,
+                  2.3764891624450684,
+                  2.3764891624450684,
+                  2.3764891624450684,
+                  2.3764891624450684,
+                  2.3764891624450684,
+                  -0.1997547149658203,
+                  -0.1997547149658203,
+                  -0.10579805076122284,
+                  -0.10579805076122284,
+                  -0.19478638470172882,
+                  -0.10334884375333786,
+                  -0.10334884375333786,
+                  0.40453091478766434
+                ],
+                [
+                  -2.1853106021881104,
+                  -0.15594366192817688,
+                  -0.29443520307540894,
+                  -0.15594366192817688,
+                  -0.15594366192817688,
+                  -0.756756067276001,
+                  -0.5300799012184143,
+                  -0.08831881731748581,
+                  -0.31338807940483093,
+                  -0.31338807940483093,
+                  -0.1311977058649063,
+                  -0.1311977058649063,
+                  -0.1311977058649063,
+                  -0.43319931626319885,
+                  -0.43319931626319885,
+                  -0.43319931626319885,
+                  -0.07112575322389603,
+                  -0.309945672750473,
+                  -0.07112575322389603,
+                  -0.07112575322389603,
+                  -0.07112575322389603,
+                  -0.07112575322389603,
+                  -1.073662281036377,
+                  2.8795366287231445,
+                  -1.073662281036377,
+                  1.8084837198257446,
+                  -0.417385995388031,
+                  -0.417385995388031,
+                  -0.03005858324468136,
+                  -0.03005858324468136,
+                  -0.03005858324468136,
+                  -0.03005858324468136,
+                  -0.20044291019439697,
+                  -0.20044291019439697,
+                  -0.20044291019439697,
+                  -0.20044291019439697,
+                  -0.20044291019439697,
+                  3.2563610076904297,
+                  3.2563610076904297,
+                  2.219989538192749,
+                  2.219989538192749,
+                  3.987532615661621,
+                  2.9688076972961426,
+                  2.9688076972961426,
+                  1.2829475606319551
                 ]
               ]
             }
@@ -382,6 +768,14 @@
       ],
       [
         "en",
+        "include historic conversions"
+      ],
+      [
+        "en",
+        "show when I traded in the past"
+      ],
+      [
+        "en",
         "show merchant category code"
       ],
       [
@@ -391,6 +785,22 @@
       [
         "en",
         "show distribution of MCC's"
+      ],
+      [
+        "en",
+        "how can I reduce my expenses"
+      ],
+      [
+        "en",
+        "break down spending by employee"
+      ],
+      [
+        "en",
+        "break down each category"
+      ],
+      [
+        "en",
+        "expand each category type"
       ]
     ]
   },
