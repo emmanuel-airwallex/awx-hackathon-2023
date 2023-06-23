@@ -12,6 +12,7 @@ import io from "socket.io-client"
 var socket = io(":3001");
 
 function Container() {
+    const [data, setData] = useState([]);
     const location = useLocation();
     const [inputValue, setInput] = useState("")
     const [isChatOpen, setIsChatOpen] = useState(false)
@@ -23,6 +24,17 @@ function Container() {
 
     const [messages, setMessage] = useState([location.pathname === "/conversions" ? conversionPrompt[0] : expensesPrompt[0]]);
     const isContextConversions = location.pathname === "/conversions"
+
+    const getRates = (sellCcy, buyCcy) => {
+        fetch(`https://cors-anywhere.herokuapp.com/https://www.airwallex.com/api/fx/fxRate/30days?buyCcy=${buyCcy}&sellCcy=${sellCcy}`)
+        .then(r =>  r.json().then(data => setData(data)))
+        .catch(err => console.log(err));
+        return
+    }
+
+    useEffect(() => {
+        getRates('CAD', 'USD')
+    }, [])
 
     const queryBackend = (message) => {
         socket.emit("msg", message)
