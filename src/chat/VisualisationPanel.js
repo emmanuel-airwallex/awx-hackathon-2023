@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { TimeseriesChart } from '../components/charts/TimeseriesChart'
 import tradeData from "../data/tradeData"
 import BarChartBreakdown from '../components/charts/BarChartBreakdown'
@@ -8,10 +9,42 @@ import expensesBreakdownByCategoryData from '../data/expensesBreakdownByCategory
 
 function VisualisationPanel(params) {
     const isOpen = params.isOpen
+    const [data, setData] = useState([]);
+
+    const transformData = (data) => {
+        return data.map(pt => {
+            var date = new Date(pt.rateDate); // create Date object
+                    var options = {
+                        month: 'numeric', day: 'numeric',
+                    };
+
+            return {x: date.toLocaleDateString('en', options), y: pt.rate}
+        })
+    }
+    const getRates = (sellCcy, buyCcy) => {
+        fetch(`https://www.airwallex.com/api/fx/fxRate/30days?buyCcy=${buyCcy}&sellCcy=${sellCcy}`)
+        .then(r =>  r.json().then(data => setData([
+            {
+              "id": data[0].ccyPair,
+              "color": "hsl(144, 70%, 50%)",
+              "data": transformData(data)
+            }
+          ])))
+        .catch(err => console.log(err));
+
+        return data
+    }
+
+    useEffect(() => {
+        if (params.visualisation.currency) {
+            getRates('AUD', params.visualisation.currency)
+        }
+    }, [params.visualisation.currency])
+
     var visualisation
     if (params.visualisation.visualisation == "visualisation.currency") {
         visualisation =
-            <TimeseriesChart data={tradeData} height={"100%"} hasHistoricalConversions={params.visualisation.showingConversions}/>
+            <TimeseriesChart data={data} height={"100%"} hasHistoricalConversions={params.visualisation.showingConversions}/>
     }
     if (params.visualisation.visualisation == "visualisation.expense") {
         if (!params.visualisation.brokenDown) {
