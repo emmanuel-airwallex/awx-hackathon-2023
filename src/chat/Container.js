@@ -106,6 +106,13 @@ function Container() {
                     `Here are your expense categories, broken down by employee`
                 }])
             }
+            if (message.intent == "expense.blog") {
+                // how to reduce my expenses
+                setIsVisualisationOpen(false)
+                setMessage(messages => [...messages, { 'user': 'operator', prompt: 
+                    <span>Based on your transaction history, you spend 55% more on travel than a comparable eCommerce business of a similar size. We recommend you take a look at this <a href="https://tinyurl.com/59fjwjap" target="_blank" style={{color: "#775cff"}}> blog article</a> for more information.</span>
+                }])
+            }
             if (message.intent == "None") {
                 setMessage(messages => [...messages, { 'user': 'operator', prompt: 
                     `Sorry, I'm not sure what you meant. Try asking about your expenses or FX rates`
