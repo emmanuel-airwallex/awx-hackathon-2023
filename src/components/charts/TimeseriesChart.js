@@ -1,63 +1,64 @@
 import { ResponsiveLine } from '@nivo/line'
 import React from "react";
 
-const Scatter = ({ xScale, yScale }) => {
+const Scatter = ({ data, xScale, yScale }) => {
+    console.log(data[0].data[0])
     return (
         <>
             <circle
-                cx={xScale("6/8")}
-                cy={yScale(0.665)}
+                cx={xScale(data[0].data[5].x)}
+                cy={yScale(data[0].data[5].y)}
                 r={10}
                 fill="black"
                 stroke="black"
                 style={{ pointerEvents: "none" }}
             />
-            <rect
-                x={xScale("6/4")}
-                y={yScale(0.678)}
-                width={113}
-                height={30}
-                fill="white"
-                stroke="black"
-                style={{ pointerEvents: "none" }}
-            />
-            <text x={xScale("6/4")} y={yScale(0.676)} font-family="Verdana" font-size="15" fill="black">Sell $150 USD</text>
+            {/*<rect*/}
+            {/*    x={xScale("6/4")}*/}
+            {/*    y={yScale(0.678)}*/}
+            {/*    width={113}*/}
+            {/*    height={30}*/}
+            {/*    fill="white"*/}
+            {/*    stroke="black"*/}
+            {/*    style={{ pointerEvents: "none" }}*/}
+            {/*/>*/}
+            {/*<text x={xScale("6/4")} y={yScale(0.676)} font-family="Verdana" font-size="15" fill="black">Sell $150 USD</text>*/}
             <circle
-                cx={xScale("6/11")}
-                cy={yScale(0.676325)}
+                cx={xScale(data[0].data[10].x)}
+                cy={yScale(data[0].data[10].y)}
                 r={10}
                 fill="black"
                 stroke="black"
                 style={{ pointerEvents: "none" }}
             />
-            <rect
-                x={xScale("6/8")}
-                y={yScale(0.66)}
-                width={113}
-                height={30}
-                fill="white"
-                stroke="black"
-                style={{ pointerEvents: "none" }}
-            />
-            <text x={xScale("6/8")} y={yScale(0.658)} font-family="Verdana" font-size="15" fill="black">Buy $170 AUD</text>
+            {/*<rect*/}
+            {/*    x={xScale("6/8")}*/}
+            {/*    y={yScale(0.66)}*/}
+            {/*    width={113}*/}
+            {/*    height={30}*/}
+            {/*    fill="white"*/}
+            {/*    stroke="black"*/}
+            {/*    style={{ pointerEvents: "none" }}*/}
+            {/*/>*/}
+            {/*<text x={xScale("6/8")} y={yScale(0.658)} font-family="Verdana" font-size="15" fill="black">Buy $170 AUD</text>*/}
             <circle
-                cx={xScale("6/15")}
-                cy={yScale(0.68)}
+                cx={xScale(data[0].data[22].x)}
+                cy={yScale(data[0].data[22].y)}
                 r={10}
                 fill="black"
                 stroke="black"
                 style={{ pointerEvents: "none" }}
             />
-            <rect
-                x={xScale("6/16")}
-                y={yScale(0.678)}
-                width={115}
-                height={30}
-                fill="white"
-                stroke="black"
-                style={{ pointerEvents: "none" }}
-            />
-            <text x={xScale("6/16")} y={yScale(0.676)} font-family="Verdana" font-size="15" fill="black">Buy $200 AUD</text>
+            {/*<rect*/}
+            {/*    x={xScale("6/16")}*/}
+            {/*    y={yScale(0.678)}*/}
+            {/*    width={115}*/}
+            {/*    height={30}*/}
+            {/*    fill="white"*/}
+            {/*    stroke="black"*/}
+            {/*    style={{ pointerEvents: "none" }}*/}
+            {/*/>*/}
+            {/*<text x={xScale("6/16")} y={yScale(0.676)} font-family="Verdana" font-size="15" fill="black">Buy $200 AUD</text>*/}
         </>
     );
 };
