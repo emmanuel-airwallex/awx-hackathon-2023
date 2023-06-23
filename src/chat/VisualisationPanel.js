@@ -11,34 +11,21 @@ function VisualisationPanel(params) {
     const isOpen = params.isOpen
     const [data, setData] = useState([]);
 
-    // [
-    //     {
-    //         "rateDate": 1684886400000,
-    //         "source": "AWX",
-    //         "sellCcy": "CAD",
-    //         "buyCcy": "USD",
-    //         "ccyPair": "USDCAD",
-    //         "rate": 1.363608
-    //     },
-    //     {
-    //         "rateDate": 1684972800000,
-    //         "source": "AWX",
-    //         "sellCcy": "CAD",
-    //         "buyCcy": "USD",
-    //         "ccyPair": "USDCAD",
-    //         "rate": 1.363608
-    //     },
-
     const transformData = (data) => {
         return data.map(pt => {
-            return {x: pt.rateDate, y: pt.rate}
+            var date = new Date(pt.rateDate); // create Date object
+                    var options = {
+                        month: 'numeric', day: 'numeric',
+                    };
+
+            return {x: date.toLocaleDateString('en', options), y: pt.rate}
         })
     }
     const getRates = (sellCcy, buyCcy) => {
         fetch(`https://www.airwallex.com/api/fx/fxRate/30days?buyCcy=${buyCcy}&sellCcy=${sellCcy}`)
         .then(r =>  r.json().then(data => setData([
             {
-              "id": "AUDUSD",
+              "id": data[0].ccyPair,
               "color": "hsl(144, 70%, 50%)",
               "data": transformData(data)
             }
@@ -49,8 +36,10 @@ function VisualisationPanel(params) {
     }
 
     useEffect(() => {
-       getRates('AUD', 'USD')
-    }, [isOpen])
+        if (params.visualisation.currency) {
+            getRates('AUD', params.visualisation.currency)
+        }
+    }, [params.visualisation.currency])
 
     var visualisation
     if (params.visualisation.visualisation == "visualisation.currency") {
