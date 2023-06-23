@@ -32,7 +32,31 @@ const Scatter = ({ xScale, yScale }) => {
     );
 };
 
-export const TimeseriesChart = ({ data, height }) => {
+export const TimeseriesChart = ({ data, height, hasHistoricalConversions }) => {
+    console.log(hasHistoricalConversions)
+    const layers = hasHistoricalConversions 
+    ? [
+        'grid',
+        'markers',
+        'areas',
+        'lines',
+        'slices',
+        'axes',
+        'points',
+        Scatter,
+        'legends'
+    ]
+    : [
+        'grid',
+        'markers',
+        'areas',
+        'lines',
+        'slices',
+        'axes',
+        'points',
+        'legends'
+    ]
+    console.log(layers)
   return (
     <div style={{ height: height }}>
       <ResponsiveLine
@@ -98,17 +122,7 @@ export const TimeseriesChart = ({ data, height }) => {
             }
         ]}
 
-        layers={[
-            'grid',
-            'markers',
-            'areas',
-            'lines',
-            'slices',
-            'axes',
-            'points',
-            Scatter,
-            'legends'
-        ]}
+        layers={layers}
       />
     </div>
   )

@@ -11,7 +11,7 @@ function VisualisationPanel(params) {
             <div className="bg-gray-50 m-4 p-8 ring-2 rounded ring-gray-100 w-full h-full min-h-full flex flex-col shadow-xl">
                 <h1 className="text-2xl font-bold mb-4 text-gray-700">{params.visualisation.title}</h1>
                 <hr />
-                <TimeseriesChart data={tradeData} height={"100%"}/>
+                <TimeseriesChart data={tradeData} height={"100%"} hasHistoricalConversions={params.hasHistoricalConversions}/>
             </div>
         </div>
     </>
