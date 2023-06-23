@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { TimeseriesChart } from '../components/charts/TimeseriesChart'
 import tradeData from "../data/tradeData"
 import BarChartBreakdown from '../components/charts/BarChartBreakdown'
@@ -8,10 +9,56 @@ import expensesBreakdownByCategoryData from '../data/expensesBreakdownByCategory
 
 function VisualisationPanel(params) {
     const isOpen = params.isOpen
+    const [data, setData] = useState([]);
+
+    // [
+    //     {
+    //         "rateDate": 1684886400000,
+    //         "source": "AWX",
+    //         "sellCcy": "CAD",
+    //         "buyCcy": "USD",
+    //         "ccyPair": "USDCAD",
+    //         "rate": 1.363608
+    //     },
+    //     {
+    //         "rateDate": 1684972800000,
+    //         "source": "AWX",
+    //         "sellCcy": "CAD",
+    //         "buyCcy": "USD",
+    //         "ccyPair": "USDCAD",
+    //         "rate": 1.363608
+    //     },
+
+    const transformData = (data) => {
+        let newData = []
+        data.map(pt => {
+            return [...newData, {x: pt.rateDate, y: pt.rate}]
+        })
+        console.log('newData', newData)
+        return newData
+    }
+    const getRates = (sellCcy, buyCcy) => {
+        fetch(`https://www.airwallex.com/api/fx/fxRate/30days?buyCcy=${buyCcy}&sellCcy=${sellCcy}`)
+        .then(r =>  r.json().then(data => setData([
+            {
+              "id": "AUDUSD",
+              "color": "hsl(144, 70%, 50%)",
+              "data": transformData(data)
+            }
+          ])))
+        .catch(err => console.log(err));
+
+        return data
+    }
+
+    useEffect(() => {
+       getRates('CAD', 'USD')
+    }, [isOpen])
+
     var visualisation
     if (params.visualisation.visualisation == "visualisation.currency") {
         visualisation =
-            <TimeseriesChart data={tradeData} height={"100%"} hasHistoricalConversions={params.visualisation.showingConversions}/>
+            <TimeseriesChart data={data} height={"100%"} hasHistoricalConversions={params.visualisation.showingConversions}/>
     }
     if (params.visualisation.visualisation == "visualisation.expense") {
         if (!params.visualisation.brokenDown) {
