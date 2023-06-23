@@ -8,7 +8,7 @@ const Scatter = ({ data, xScale, yScale }) => {
             <circle
                 cx={xScale(data[0].data[5].x)}
                 cy={yScale(data[0].data[5].y)}
-                r={10}
+                r={7}
                 fill="orange"
                 stroke="orange"
                 style={{ pointerEvents: "none" }}
@@ -26,7 +26,7 @@ const Scatter = ({ data, xScale, yScale }) => {
             <circle
                 cx={xScale(data[0].data[10].x)}
                 cy={yScale(data[0].data[10].y)}
-                r={10}
+                r={7}
                 fill="orange"
                 stroke="orange"
                 style={{ pointerEvents: "none" }}
@@ -44,7 +44,7 @@ const Scatter = ({ data, xScale, yScale }) => {
             <circle
                 cx={xScale(data[0].data[22].x)}
                 cy={yScale(data[0].data[22].y)}
-                r={10}
+                r={7}
                 fill="orange"
                 stroke="orange"
                 style={{ pointerEvents: "none" }}
