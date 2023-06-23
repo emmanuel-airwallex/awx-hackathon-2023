@@ -3,10 +3,25 @@ import tradeData from "../data/tradeData"
 import BarChartBreakdown from '../components/charts/BarChartBreakdown'
 import expensesBreakdownData from '../data/expensesBreakdownByEmployeeData'
 import IconButton from '../components/IconButton'
-
+import BarChart from '../components/charts/BarChart';
+import expensesBreakdownByCategoryData from '../data/expensesBreakdownByCategoryData'
 
 function VisualisationPanel(params) {
     const isOpen = params.isOpen
+    var visualisation
+    if (params.visualisation.visualisation == "visualisation.currency") {
+        visualisation =
+            <TimeseriesChart data={tradeData} height={"100%"} hasHistoricalConversions={params.visualisation.showingConversions}/>
+    }
+    if (params.visualisation.visualisation == "visualisation.expense") {
+        if (!params.visualisation.brokenDown) {
+            visualisation =
+                <BarChart data={expensesBreakdownByCategoryData} height={"100%"} />
+        }else{
+            visualisation =
+                <BarChartBreakdown data={expensesBreakdownData} height={"100%"} />
+        }
+    }
     return <>
         <div className={"fixed bottom-36 right-0 m-4 p-8 h-2/3 max-w-5xl w-full m-8 transition-all duration-300 " + (isOpen ? "-translate-x-[450px] opacity-100" : "-translate-x-[300px] opacity-0")} >
             <div className="bg-gray-50 m-4 p-8 ring-2 rounded ring-gray-100 w-full h-full min-h-full flex flex-col shadow-xl">
@@ -20,7 +35,9 @@ function VisualisationPanel(params) {
                     </IconButton>
                 </div>
                 <hr />
-                <TimeseriesChart data={tradeData} height={"100%"} hasHistoricalConversions={params.hasHistoricalConversions}/>
+                {
+                    visualisation
+                }
             </div>
         </div>
     </>

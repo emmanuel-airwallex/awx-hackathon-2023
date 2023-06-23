@@ -35,7 +35,7 @@ function Container() {
             if (message.intent == "visualisation.currency") {
                 // extract currency
                 const currency = message.entities.filter((entity) => {
-                    entity.entity == "currency"
+                    return entity.entity == "currency"
                 })[0]
 
                 setVisualisation({
@@ -49,7 +49,7 @@ function Container() {
             if (message.intent == "visualisation.currency.conversions") {
                 // extract currency
                 const currency = message.entities.filter((entity) => {
-                    entity.entity == "currency"
+                    return entity.entity == "currency"
                 })[0]
 
                 setVisualisation({
