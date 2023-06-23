@@ -30,6 +30,54 @@ function Container() {
     useEffect(() => {
         const onBotMessage = (message) => {
             console.log(message)
+            setIsVisualisationOpen(false)
+            if (message.intent == "visualisation.currency") {
+                // extract currency
+                const currency = message.entities.filter((entity) => {
+                    entity.entity == "currency"
+                })[0]
+
+                setVisualisation({
+                    visualisation: "visualisation.currency",
+                    showingConversions: false,
+                    currency: currency
+                })
+
+                setIsVisualisationOpen(true)
+            }
+            if (message.intent == "visualisation.currency.conversions") {
+                // extract currency
+                const currency = message.entities.filter((entity) => {
+                    entity.entity == "currency"
+                })[0]
+
+                setVisualisation({
+                    visualisation: "visualisation.currency",
+                    showingConversions: true,
+                    currency: currency
+                })
+
+                setIsVisualisationOpen(true)
+            }
+            if (message.intent == "visualisation.expense") {
+                // what are my top five expenses
+                // break this down by employee.
+                setVisualisation({
+                    visualisation: "visualisation.expense",
+                    brokenDown: false
+                })
+                setIsVisualisationOpen(true)
+            }
+            if (message.intent == "visualisation.expense.breakdown") {
+                // what are my top five expenses
+                // break this down by employee.
+                setVisualisation({
+                    visualisation: "visualisation.expense",
+                    brokenDown: true
+                })
+                setIsVisualisationOpen(true)
+            }
+
             setMessage(messages => [...messages, { 'user': 'operator', prompt: message.intent }])
         }
 

@@ -22,9 +22,17 @@ manager.addDocument('en', 'show currency over time', 'visualisation.currency');
 manager.addDocument('en', 'compare fx rates', 'visualisation.currency');
 manager.addDocument('en', 'show foreign exchange graph', 'visualisation.currency');
 
+manager.addDocument('en', 'include historic conversions', 'visualisation.currency.conversions');
+manager.addDocument('en', 'show when I traded in the past', 'visualisation.currency.conversions');
+
 manager.addDocument('en', 'show merchant category code', 'visualisation.expense');
 manager.addDocument('en', 'show spending on cards', 'visualisation.expense');
 manager.addDocument('en', 'show distribution of MCC\'s', 'visualisation.expense');
+
+manager.addDocument('en', 'break down spending by employee', 'visualisation.expense.breakdown');
+manager.addDocument('en', 'break down each category', 'visualisation.expense.breakdown');
+manager.addDocument('en', 'expand each category type', 'visualisation.expense.breakdown');
+
 
 // Train also the NLG
 // manager.addAnswer('en', 'greetings.bye', 'Till next time');
