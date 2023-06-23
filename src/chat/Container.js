@@ -44,12 +44,22 @@ function Container() {
         const onBotMessage = (message) => {
             console.log(message)
             setIsVisualisationOpen(false)
-            if (message.intent == "visualisation.currency") {
-                // extract currency
-                const currency = message.entities.filter((entity) => {
-                    return entity.entity == "currency"
-                })[0]
 
+            const currencyEntities = message.entities.filter((entity) => {
+                    return entity.entity == "currency"
+                })
+            var currency = null
+            if (currencyEntities.length > 0) {
+                currency = currencyEntities[0].sourceText.toUpperCase()
+            }
+
+            if (message.intent == "visualisation.currency") {
+                if (currency == null) {
+                    setMessage(messages => [...messages, { 'user': 'operator', prompt: 
+                        `I'd be happy to help you with rates - please specify the currency`
+                    }])
+                    return
+                }
                 setVisualisation({
                     visualisation: "visualisation.currency",
                     showingConversions: false,
@@ -57,12 +67,18 @@ function Container() {
                 })
 
                 setIsVisualisationOpen(true)
+
+                setMessage(messages => [...messages, { 'user': 'operator', prompt: 
+                    `Here are our ${currency} FX rates`
+                }])
             }
             if (message.intent == "visualisation.currency.conversions") {
-                // extract currency
-                const currency = message.entities.filter((entity) => {
-                    return entity.entity == "currency"
-                })[0]
+                if (currency == null) {
+                    setMessage(messages => [...messages, { 'user': 'operator', prompt: 
+                        `I'd be happy to help you with rates - please specify the currency`
+                    }])
+                    return
+                }
 
                 setVisualisation({
                     visualisation: "visualisation.currency",
@@ -71,6 +87,9 @@ function Container() {
                 })
 
                 setIsVisualisationOpen(true)
+                setMessage(messages => [...messages, { 'user': 'operator', prompt: 
+                    `I've included your trades on the ${currency} FX rates `
+                }])
             }
             if (message.intent == "visualisation.expense") {
                 // what are my top five expenses
@@ -80,6 +99,9 @@ function Container() {
                     brokenDown: false
                 })
                 setIsVisualisationOpen(true)
+                setMessage(messages => [...messages, { 'user': 'operator', prompt: 
+                    `Here are your expenses, by category`
+                }])
             }
             if (message.intent == "visualisation.expense.breakdown") {
                 // what are my top five expenses
@@ -89,9 +111,17 @@ function Container() {
                     brokenDown: true
                 })
                 setIsVisualisationOpen(true)
+                setMessage(messages => [...messages, { 'user': 'operator', prompt: 
+                    `Here are your expense categories, broken down by employee`
+                }])
+            }
+            if (message.intent == "None") {
+                setMessage(messages => [...messages, { 'user': 'operator', prompt: 
+                    `Sorry, I'm not sure what you meant. Try asking about your expenses or FX rates`
+                }])
             }
 
-            setMessage(messages => [...messages, { 'user': 'operator', prompt: message.intent }])
+            // setMessage(messages => [...messages, { 'user': 'operator', prompt: message.intent }])
         }
 
         socket.on('bot message', onBotMessage)
@@ -126,7 +156,6 @@ function Container() {
             send()
             return
         }
-        console.log('e', event.target.value)
         setInput(event.target.value);
     };
 
