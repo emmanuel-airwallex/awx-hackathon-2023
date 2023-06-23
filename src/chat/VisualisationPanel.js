@@ -30,12 +30,9 @@ function VisualisationPanel(params) {
     //     },
 
     const transformData = (data) => {
-        let newData = []
-        data.map(pt => {
-            return [...newData, {x: pt.rateDate, y: pt.rate}]
+        return data.map(pt => {
+            return {x: pt.rateDate, y: pt.rate}
         })
-        console.log('newData', newData)
-        return newData
     }
     const getRates = (sellCcy, buyCcy) => {
         fetch(`https://www.airwallex.com/api/fx/fxRate/30days?buyCcy=${buyCcy}&sellCcy=${sellCcy}`)
@@ -52,7 +49,7 @@ function VisualisationPanel(params) {
     }
 
     useEffect(() => {
-       getRates('CAD', 'USD')
+       getRates('AUD', 'USD')
     }, [isOpen])
 
     var visualisation
