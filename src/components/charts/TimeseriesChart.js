@@ -9,8 +9,8 @@ const Scatter = ({ data, xScale, yScale }) => {
                 cx={xScale(data[0].data[5].x)}
                 cy={yScale(data[0].data[5].y)}
                 r={10}
-                fill="black"
-                stroke="black"
+                fill="orange"
+                stroke="orange"
                 style={{ pointerEvents: "none" }}
             />
             {/*<rect*/}
@@ -27,8 +27,8 @@ const Scatter = ({ data, xScale, yScale }) => {
                 cx={xScale(data[0].data[10].x)}
                 cy={yScale(data[0].data[10].y)}
                 r={10}
-                fill="black"
-                stroke="black"
+                fill="orange"
+                stroke="orange"
                 style={{ pointerEvents: "none" }}
             />
             {/*<rect*/}
@@ -45,8 +45,8 @@ const Scatter = ({ data, xScale, yScale }) => {
                 cx={xScale(data[0].data[22].x)}
                 cy={yScale(data[0].data[22].y)}
                 r={10}
-                fill="black"
-                stroke="black"
+                fill="orange"
+                stroke="orange"
                 style={{ pointerEvents: "none" }}
             />
             {/*<rect*/}
