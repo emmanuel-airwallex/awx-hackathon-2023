@@ -8,6 +8,7 @@ import VisualisationPanel from "./VisualisationPanel";
 import WaitingStatus from "./WaitingStatus"
 import io from "socket.io-client"
 
+
 var socket = io(":3001");
 
 function Container() {
@@ -130,7 +131,7 @@ function Container() {
     return (
         <>
             <ChatToggleButton onClick={() => setIsChatOpen(!isChatOpen)} isOpen={isChatOpen} />
-            <VisualisationPanel isOpen={isVisualisationOpen && isChatOpen} visualisation={visualisation} />
+            <VisualisationPanel isOpen={isVisualisationOpen && isChatOpen} visualisation={visualisation} hasHistoricalConversions={true}/>
             {
                 <div className={"fixed bottom-24 right-0 m-4 p-8 h-3/4 max-w-lg w-full m-8 transition-all duration-200 " + (isChatOpen ? "-translate-x-3 opacity-100" : "opacity-0")} >
                     <div className="bg-gray-50 m-4 p-8 ring-2 rounded ring-gray-100 w-full h-full min-h-full flex flex-col shadow-2xl">

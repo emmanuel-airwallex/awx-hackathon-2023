@@ -20,7 +20,7 @@ function VisualisationPanel(params) {
                     </IconButton>
                 </div>
                 <hr />
-                <TimeseriesChart data={tradeData} height={"100%"}/>
+                <TimeseriesChart data={tradeData} height={"100%"} hasHistoricalConversions={params.hasHistoricalConversions}/>
             </div>
         </div>
     </>
