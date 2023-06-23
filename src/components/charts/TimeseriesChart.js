@@ -63,7 +63,6 @@ const Scatter = ({ xScale, yScale }) => {
 };
 
 export const TimeseriesChart = ({ data, height, hasHistoricalConversions }) => {
-    console.log(hasHistoricalConversions)
     const layers = hasHistoricalConversions 
     ? [
         'grid',
@@ -86,7 +85,6 @@ export const TimeseriesChart = ({ data, height, hasHistoricalConversions }) => {
         'points',
         'legends'
     ]
-    console.log(layers)
   return (
     <div style={{ height: height }}>
       <ResponsiveLine

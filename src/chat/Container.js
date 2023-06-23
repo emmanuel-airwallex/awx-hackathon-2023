@@ -31,13 +31,13 @@ function Container() {
         const onBotMessage = (message) => {
             console.log(message)
             setIsVisualisationOpen(false)
-            
-            const currencyEntities = message.entities.filter((entity) => {
+
+            const currencyEntities = message.sourceEntities.filter((entity) => {
                     return entity.entity == "currency"
                 })
             var currency = null
             if (currencyEntities.length > 0) {
-                currency = currencyEntities[0].sourceText.toUpperCase()
+                currency = currencyEntities[0].resolution.isoCurrency
             }
 
             if (message.intent == "visualisation.currency") {
