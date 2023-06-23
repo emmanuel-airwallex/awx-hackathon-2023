@@ -9,7 +9,7 @@ export const Conversions = () => {
         for(var j = 0; j < tradeData[i].data.length; j++) {
             var date = new Date(tradeData[i].data[j].x); // create Date object
             var options = {
-                year: 'numeric', month: 'numeric', day: 'numeric',
+                month: 'numeric', day: 'numeric',
             };
             tradeData[i].data[j].x = date.toLocaleDateString('en', options);
         }
