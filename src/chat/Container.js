@@ -50,7 +50,8 @@ function Container() {
                 setVisualisation({
                     visualisation: "visualisation.currency",
                     showingConversions: false,
-                    currency: currency
+                    currency: currency,
+                    title: `${currency} FX Rates`
                 })
 
                 setIsVisualisationOpen(true)
@@ -70,7 +71,8 @@ function Container() {
                 setVisualisation({
                     visualisation: "visualisation.currency",
                     showingConversions: true,
-                    currency: currency
+                    currency: currency,
+                    title: `${currency} FX Rates with trades`
                 })
 
                 setIsVisualisationOpen(true)
@@ -83,7 +85,8 @@ function Container() {
                 // break this down by employee.
                 setVisualisation({
                     visualisation: "visualisation.expense",
-                    brokenDown: false
+                    brokenDown: false,
+                    title: "Expenses"
                 })
                 setIsVisualisationOpen(true)
                 setMessage(messages => [...messages, { 'user': 'operator', prompt: 
@@ -95,7 +98,8 @@ function Container() {
                 // break this down by employee.
                 setVisualisation({
                     visualisation: "visualisation.expense",
-                    brokenDown: true
+                    brokenDown: true,
+                    title: "Expenses by Employee"
                 })
                 setIsVisualisationOpen(true)
                 setMessage(messages => [...messages, { 'user': 'operator', prompt: 
