@@ -5,7 +5,7 @@ const Scatter = ({ xScale, yScale }) => {
     return (
         <>
             <circle
-                cx={xScale("6/8/2023")}
+                cx={xScale("6/8")}
                 cy={yScale(0.665)}
                 r={10}
                 fill="black"
@@ -13,7 +13,7 @@ const Scatter = ({ xScale, yScale }) => {
                 style={{ pointerEvents: "none" }}
             />
             <circle
-                cx={xScale("6/11/2023")}
+                cx={xScale("6/11")}
                 cy={yScale(0.676325)}
                 r={10}
                 fill="black"
@@ -21,7 +21,7 @@ const Scatter = ({ xScale, yScale }) => {
                 style={{ pointerEvents: "none" }}
             />
             <circle
-                cx={xScale("6/18/2023")}
+                cx={xScale("6/18")}
                 cy={yScale(0.69)}
                 r={10}
                 fill="black"
@@ -53,7 +53,7 @@ export const TimeseriesChart = ({ data, height }) => {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'transportation',
+            legend: 'Conversion Date',
             legendOffset: 36,
             legendPosition: 'middle'
         }}
@@ -61,7 +61,7 @@ export const TimeseriesChart = ({ data, height }) => {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'count',
+            legend: '',
             legendOffset: -40,
             legendPosition: 'middle'
         }}
